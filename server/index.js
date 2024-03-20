@@ -3,7 +3,15 @@ const app = express();
 const http = require("http");
 const path = require("path");
 const { Server } = require("socket.io");
-const ACTIONS = require("./src/Actions");
+
+const ACTIONS = {
+  JOIN: "join",
+  JOINED: "joined",
+  DISCONNECTED: "disconnected",
+  CODE_CHANGE: "code-change",
+  SYNC_CODE: "sync-code",
+  LEAVE: "leave",
+};
 
 const server = http.createServer(app);
 const io = new Server(server);
