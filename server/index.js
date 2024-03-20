@@ -16,10 +16,6 @@ const ACTIONS = {
 const server = http.createServer(app);
 const io = new Server(server);
 
-app.use("/t", (req, res) => {
-  res.send("Server is running.");
-});
-
 const userSocketMap = {};
 function getAllConnectedClients(roomId) {
   return Array.from(io.sockets.adapter.rooms.get(roomId) || []).map(
