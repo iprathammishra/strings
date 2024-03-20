@@ -21,6 +21,10 @@ app.use((req, res, next) => {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
+app.use("/t", (req, res) => {
+  res.send("Server is running.");
+});
+
 const userSocketMap = {};
 function getAllConnectedClients(roomId) {
   return Array.from(io.sockets.adapter.rooms.get(roomId) || []).map(
